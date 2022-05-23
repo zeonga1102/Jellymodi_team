@@ -3,6 +3,9 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
+from api import detail
+
+app.register_blueprint(detail.bp)
 
 @app.route('/')
 def home():
