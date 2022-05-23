@@ -100,8 +100,9 @@ body {
     padding: 0;
 }
 
-.modal-body > button {
+.modal_button {
     background: none;
+    width: 100%;
     border: none;
     padding: 15px;
     font-weight: bold;

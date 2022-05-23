@@ -37,9 +37,9 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <button onclick="edit_button_click()">수정하기</button>
+                <button class="modal_button" onclick="edit_button_click()">수정하기</button>
                 <hr>
-                <a href="{{ url_for('detail.delete_post', post_id=post_info._id) }}"><button style="color: red">삭제하기</button></a>
+                <a href="{{ url_for('detail.delete_post', post_id=post_info._id) }}"><button class="modal_button" style="color: red">삭제하기</button></a>
             </div>
         </div>
       </div>
