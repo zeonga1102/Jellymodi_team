@@ -20,7 +20,7 @@ def show_detail(post_id):
 @bp.route('/delete/<post_id>')
 def delete_post(post_id):
     db.posts.delete_one({'_id': ObjectId(post_id)})
-    return redirect(url_for('app.home'))
+    return redirect(url_for('home'))
 
 @bp.route('/update', methods=['POST'])
 def edit_post():
