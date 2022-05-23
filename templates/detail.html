@@ -21,7 +21,9 @@
             <div id="date" class="date"><span class="deco">{{ post_info.date }}</span></div>
             <div class="content">
                 <div id="jelly_image" class="user_image"><img src={{ post_info.emoji }}></div>
-                <div id="photo" class="user_image"><img src={{ post_info.img }}></div>
+                {% if post_info.img != '' %}
+                    <div id="photo" class="user_image"><img src={{ post_info.img }}></div>
+                {% endif %}
                 <div id="desc" class="desc">{{ post_info.desc }}</div>
             </div>
         </div>
