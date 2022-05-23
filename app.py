@@ -4,7 +4,13 @@ import jwt
 import datetime
 import hashlib
 
-from api import login, detail
+from api import login, detail, post
+from pymongo import MongoClient
+client = MongoClient('localhost', 27017)
+db = client.dbsparta
+
+
+
 
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
@@ -12,6 +18,8 @@ app = Flask(__name__)
 
 app.register_blueprint(login.bp)
 app.register_blueprint(detail.bp)
+app.register_blueprint(post.bp)
+
 
 from pymongo import MongoClient
 
@@ -41,6 +49,15 @@ def home():
         return redirect(url_for("login.login", msg="다시 로그인해주세요."))
     except jwt.exceptions.DecodeError:
         return redirect(url_for("login.login", msg="로그인 정보가 존재하지 않습니다."))
+
+# ==========================post 게시물===========================
+
+
+# @app.route("/", methods={"POST"})
+
+
+
+
 
 
 if __name__ == '__main__':
