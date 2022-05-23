@@ -9,4 +9,4 @@ bp = Blueprint('detail', __name__, url_prefix='/detail')
 def show_detail(post_id):
     post_info = db.posts.find_one({'_id': ObjectId(post_id)})
     post_info['_id'] = str(post_info['_id'])
-    return render_template('detail.html', post_info)
+    return render_template('detail.html', post_info=post_info)
