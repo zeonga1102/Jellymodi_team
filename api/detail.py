@@ -1,6 +1,7 @@
 from flask import render_template, Blueprint, url_for, request, jsonify
 from werkzeug.utils import redirect
 from bson.objectid import ObjectId
+import datetime
 
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
@@ -15,13 +16,14 @@ bp = Blueprint('detail', __name__, url_prefix='/detail')
 def show_detail(post_id):
     post_info = db.posts.find_one({'_id': ObjectId(post_id)})
     post_info['_id'] = str(post_info['_id'])
+    post_info['date'] = post_info['date'].strftime("%Y %m %d %a").upper()
     return render_template('detail.html', post_info=post_info)
 
 
 @bp.route('/delete/<post_id>')
 def delete_post(post_id):
     db.posts.delete_one({'_id': ObjectId(post_id)})
-    return redirect(url_for('app.home'))
+    return redirect(url_for('home'))
 
 @bp.route('/update', methods=['POST'])
 def edit_post():

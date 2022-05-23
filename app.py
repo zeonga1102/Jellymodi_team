@@ -24,8 +24,6 @@ app.register_blueprint(post.bp)
 from pymongo import MongoClient
 
 
-
-
 @app.route('/')
 def home():
     token_receive = request.cookies.get('mytoken')
@@ -33,8 +31,7 @@ def home():
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
         user_info = db.user.find_one({"email": payload['email']})
 
-        posts = list(db.posts.find({}).sort('date', -1))
-
+        posts = list(db.posts.find({"email": payload['email']}).sort('date', -1))
         temp = {}
         for post in posts:
             try:
@@ -42,7 +39,6 @@ def home():
 
             except:
                 temp[post['date'].strftime('%Y %B')] = [post]
-
         return render_template('index.html', temp=temp)
 
     except jwt.ExpiredSignatureError:
