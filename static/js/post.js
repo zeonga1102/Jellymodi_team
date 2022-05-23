@@ -1,13 +1,3 @@
-from pymongo import MongoClient
-client = MongoClient('여기에 URL 입력')
-db = client.dbsparta
-
-
-
-
-
-
-
 function showImage() {
     let newImage = document.getElementById('image-show').lastElementChild;
     //이미지는 화면에 나타나고
@@ -75,7 +65,9 @@ function upload() {
   ///////////////////////////////////////////////////////////////////
 
 
-//   // 이미지 업로드 강의영상 코드
+
+
+//   // 이미지 업로드 강의 영상 코드
 //   function posting(){
 //     let title = $('#title').val()
 //     let file = $('#file')[0].files[0]
