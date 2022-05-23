@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, url_for, request
+from flask import render_template, Blueprint, url_for, request, jsonify
 from werkzeug.utils import redirect
 from bson.objectid import ObjectId
 
@@ -25,3 +25,4 @@ def edit_post():
     post_id = request.form['post_id']
     desc = request.form['desc']
     db.posts.update_one({'_id': ObjectId(post_id)}, {'$set': {'desc': desc}})
+    return jsonify({'msg': 'success'})
