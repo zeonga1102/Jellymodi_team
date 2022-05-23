@@ -47,7 +47,7 @@ body {
 
 .content {
     width: 80%;
-    background-image: url("../img/배경8_편집.jpg");
+    background-image: url("../img/background_grid.jpg");
     background-size: contain;
     display: flex;
     flex-direction: column;
