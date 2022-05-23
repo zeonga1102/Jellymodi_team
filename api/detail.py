@@ -4,7 +4,6 @@ from bson.objectid import ObjectId
 
 from pymongo import MongoClient
 
-
 bp = Blueprint('detail', __name__, url_prefix='/detail')
 
 
