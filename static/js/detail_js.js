@@ -22,3 +22,9 @@ function done_button_click(post_id) {
     }
   });
 }
+
+function logout() {
+  $.removeCookie('mytoken', {path: '/'});
+  alert('logout ;ㅅ;')
+  window.location.href = '/'
+}
