@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--자바스크립트, 스타일시트 파일 불러오기-->
+    <script src="{{ url_for('static', filename='js/list.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/list.css') }}">
+
+    <!--웹폰트 불러오기-->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumHaNaSonGeurSsi.css" rel="stylesheet">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumHaNaDoeEoSonGeurSsi.css" rel="stylesheet">
+
+
+    <title>Jellymodi</title>
+</head>
+<body>
+
+<button class="floating_button"></button>
+<button class="floating_button" type="button" onclick="goPost()"></button>
+
+<section>
+    <header><h1><span class="deco">나의 젤리들</span></h1></header>
+    <article id="list_box">
+
+
+
+        {% for key, value in temp.items() %}
+        <div class="list">
+            <h5><span class="deco">{{ key }}<span class="small">  (젤리 {{ value | length }}개)</span></span></h5>
+            <div class="jelly_box">
+                {% for val in value %}
+                <span data_tooltip="{{val.date.strftime('%d %a')}}">
+                    <a href="{{val._id}}">
+                    {# <a href={{url_for('detail.show_detail', post_id='val._id')}}> #}
+                        <div class="jelly"><img src={{val.emoji}}></div>
+                    </a>
+                </span>
+                {% endfor%}
+            </div>
+        </div>
+        {% endfor %}
+
+    </article>
+</section>
+
+<footer>
+    <p>2022 Jellymodi Project from Team.CodingOrDie</p>
+    <p>Team.CodingOrDie
+        || JA <a href="https://cold-charcoal.tistory.com">blog</a>
+        | DG <a href="https://ddongkim.tistory.com">blog</a>
+        | NE <a href="https://moist-ink.tistory.com/">blog</a>
+        | HK <a href="https://lululala-2.tistory.com">blog</a>
+    </p>
+</footer>
+
+</body>
+
+</html>
