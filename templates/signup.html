@@ -25,7 +25,7 @@
     <div class="logo" onclick="refresh()"></div>
     <form class="form1">
         <p class="desc" align="center">소중한 기록을 보호하기 위해 가입해주세요 :)</p>
-        <input class="email" id="userid" type="email" align="center" placeholder="Enter email">
+        <input class="email" id="userid" type="email" align="center" placeholder="Enter email" autofocus>
         <input class="password" id="userpw" type="password" align="center" placeholder="Password">
         <button class="submit" type="button" align="center" onclick="signup()">Sign up</button>
         <p class="signup" align="center"><a href="{{ url_for('login.login') }}">Have you already signed up?</a></p>
