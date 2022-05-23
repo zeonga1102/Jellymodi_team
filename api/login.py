@@ -8,8 +8,6 @@ bp = Blueprint('login', __name__, url_prefix='/jelly')
 from pymongo import MongoClient
 
 
-
-
 @bp.route('/signup')
 def signup():
     return render_template('signup.html')
@@ -74,4 +72,3 @@ def api_valid():
 
     except jwt.exceptions.DecodeError:
         return jsonify({'result': 'fail', 'msg': '로그인 정보가 존재하지 않습니다.'})
-
