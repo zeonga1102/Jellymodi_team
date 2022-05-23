@@ -1,0 +1,196 @@
+body {
+    background-color: #fcd19c;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.border_line{
+    border: solid 1px red;
+}
+
+.safety_message{
+    height: 150px;
+    margin: auto auto auto auto;
+
+    text-align: center;
+    line-height: 200px;
+    font-size: 40px;
+    font-weight: bold;
+}
+.icon_box{
+    height: 200px;
+    margin: 50px auto 50px auto;
+    display: flex;
+    justify-content: center;
+
+}
+.small_icon_box{
+    width: 200px;
+    height: 200px;
+    margin: 0px 10px 0px 10px;
+    background-color: #fff8f0;
+
+    text-align: center;
+    line-height: 200px;
+
+    border-radius: 50%;
+}
+
+
+.small_icon_box:hover{
+  background:indianred;
+}
+.small_icon_box:active{
+  font-size:20px;
+}
+
+
+.main_box{
+    width: 700px;
+    height: 300px;
+    margin: 50px auto 50px auto;
+    display: flex;
+    justify-content: center;
+
+
+    font-size: 30px;
+    text-align: center;
+}
+
+.main_text_image{
+    width: 450px;
+    height: 300px;
+    margin: 50px auto 70px auto;
+    line-height: 300px;
+    background-color: #fff8f0;
+}
+.false_main_text{
+    width: 450px;
+    height: 300px;
+    margin: 50px auto 70px auto;
+    line-height: 300px;
+}
+.textarea{
+    height: 300px;
+}
+
+.icon_upload{
+
+}
+
+.upload{
+    background: red;
+}
+
+.image_div{
+    width: 450px;
+    height: 300px;
+    display: none;
+
+}
+
+.face_div{
+    width: 150px;
+    height: 150px;
+}
+
+
+
+
+
+
+
+
+
+/*color: #606060;*/
+/*color: #f4a460;*/
+/*color: #ffb266;*/
+/*color: #ff9933;*/
+
+
+
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.image-upload {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#chooseFile {
+    visibility: hidden;
+}
+
+.fileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileInput {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 2px black;
+    width: 60%;
+    height: 30px;
+}
+
+#fileName {
+    margin-left: 5px;
+}
+
+.buttonContainer {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 0.8em;
+
+    cursor: pointer;
+}
+
+.image-show {
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.img {
+    position: absolute;
+}
+
