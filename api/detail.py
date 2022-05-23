@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, url_for
+from flask import render_template, Blueprint, url_for, request
 from werkzeug.utils import redirect
 from bson.objectid import ObjectId
 
@@ -19,3 +19,9 @@ def show_detail(post_id):
 def delete_post(post_id):
     db.posts.delete_one({'_id': ObjectId(post_id)})
     return redirect(url_for('app.home'))
+
+@bp.route('/edit', methods=['POST'])
+def edit_post():
+    post_id = request.form['post_id']
+    desc = request.form['desc']
+    db.posts.update_one({'_id': ObjectId(post_id)}, {'$set': {'desc': desc}})

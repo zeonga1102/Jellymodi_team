@@ -11,9 +11,16 @@ body {
     height: 50px;
     border-radius: 50%;
     background-color: #ffb326;
+    border: none;
+}
+
+#floating_modal_button {
     background-image: url("../img/more.png");
     background-size: cover;
-    border: none;
+}
+
+#floating_edit_button {
+    font-weight: bold;
 }
 
 .container {
@@ -57,6 +64,7 @@ body {
 
 .desc {
     font-size: 20px;
+    padding: 0 10%;
 }
 
 .tape {
@@ -67,6 +75,18 @@ body {
     position: relative;
     left: calc(50% - 150px);
     top: 70px;
+}
+
+.edit_desc {
+    width: 80%;
+    height: 1000px;
+    padding: 10px;
+    resize: none;
+    display: none;
+}
+
+.edit_desc:focus {
+    outline: none;
 }
 
 .modal-content {

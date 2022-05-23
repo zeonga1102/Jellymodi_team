@@ -15,7 +15,8 @@
 
 </head>
 <body>
-    <button class="floating_button" data-bs-toggle="modal" data-bs-target="#option_modal"></button>
+    <button id="floating_modal_button" class="floating_button" data-bs-toggle="modal" data-bs-target="#option_modal"></button>
+    <button id="floating_edit_button" class="floating_button" onclick="done_button_click('{{ post_info._id }}')">완료</button>
     <div>
         <div class="tape"></div>
         <div class="container">
@@ -26,6 +27,7 @@
                     <div id="photo" class="user_image"><img src={{ post_info.img }}></div>
                 {% endif %}
                 <div id="desc" class="desc">{{ post_info.desc }}</div>
+                <textarea id="edit_desc" class="edit_desc">{{ post_info.desc }}</textarea>
             </div>
         </div>
     </div>
@@ -35,7 +37,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <button>수정하기</button>
+                <button onclick="edit_button_click()">수정하기</button>
                 <hr>
                 <a href="{{ url_for('detail.delete_post', post_id=post_info._id) }}"><button style="color: red">삭제하기</button></a>
             </div>
