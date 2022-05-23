@@ -1,6 +1,7 @@
 from flask import render_template, Blueprint, url_for, request, jsonify
 from werkzeug.utils import redirect
 from bson.objectid import ObjectId
+import datetime
 
 from pymongo import MongoClient
 
@@ -12,6 +13,7 @@ bp = Blueprint('detail', __name__, url_prefix='/detail')
 def show_detail(post_id):
     post_info = db.posts.find_one({'_id': ObjectId(post_id)})
     post_info['_id'] = str(post_info['_id'])
+    post_info['date'] = post_info['date'].strftime("%Y %m %d %a").upper()
     return render_template('detail.html', post_info=post_info)
 
 
