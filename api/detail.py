@@ -20,7 +20,7 @@ def delete_post(post_id):
     db.posts.delete_one({'_id': ObjectId(post_id)})
     return redirect(url_for('app.home'))
 
-@bp.route('/edit', methods=['POST'])
+@bp.route('/update', methods=['POST'])
 def edit_post():
     post_id = request.form['post_id']
     desc = request.form['desc']

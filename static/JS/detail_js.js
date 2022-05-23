@@ -15,7 +15,7 @@ function done_button_click(post_id) {
 
   $.ajax({
     type: 'POST',
-    url: '/detail/edit',
+    url: '/detail/update',
     data: {post_id: post_id, desc: desc},
     success: function (response) {
       window.location.reload();
