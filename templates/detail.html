@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="{{ url_for('static', filename='CSS/detail_css.css') }}">
+
+</head>
+<body>
+    <button class="floating_button" data-bs-toggle="modal" data-bs-target="#option_modal"></button>
+    <div>
+        <div class="tape"></div>
+        <div class="container">
+            <div id="date" class="date"><span class="deco">2022 05 20 FRI</span></div>
+            <div class="content">
+                <div id="jelly_image" class="user_image"><img src="../static/img/happy.png"></div>
+                <div id="photo" class="user_image"><img src="../static/img/배경1.jpg"></div>
+                <div id="desc" class="desc">오늘의 일기... 모델 만들기 빡세군요<br>흠흠흠흠</div>
+            </div>
+        </div>
+    </div>
+
+    <!--모달-->
+    <div class="modal fade" id="option_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button>수정하기</button>
+                <hr>
+                <button style="color: red">삭제하기</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
