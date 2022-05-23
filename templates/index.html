@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <title>Jellymodi</title>
+</head>
+<script>
+    function logout() {
+        $.removeCookie('mytoken', {path: '/'});
+        alert('logout ;ㅅ;')
+        window.location.href = '/'
+    }
+
+</script>
+<body>
+<p>로그아웃하고 싶어요?</p>
+
+<button onclick="logout()" align="center">logout</button>
+
+</body>
+</html>

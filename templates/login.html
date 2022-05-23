@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <!--자바스크립트, 스타일시트 파일 불러오기-->
+    <script src="{{ url_for('static', filename='js/login_signup.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup.css') }}">
+
+    <title>Jellymodi</title>
+</head>
+
+<body>
+<div class="main">
+    <div class="logo" onclick="refresh()"></div>
+    <form class="form1">
+        <p class="desc" align="center">말랑한 젤리를 모으는 감성일기 :)</p>
+        <input class="email" id="userid" type="email" align="center" placeholder="Enter email">
+        <input class="password" id="userpw"type="password" align="center" placeholder="Password">
+        <button class="submit" type="button" align="center" onclick="login()">Login</button>
+        <p class="signup" align="center"><a href="{{ url_for('login.signup') }}">If it's your first time, please sign up</a></p>
+    </form>
+</div>
+</body>
+
+</html>
