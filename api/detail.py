@@ -3,6 +3,9 @@ from werkzeug.utils import redirect
 from bson.objectid import ObjectId
 
 from pymongo import MongoClient
+client = MongoClient('localhost', 27017)
+db = client.dbsparta
+
 
 
 bp = Blueprint('detail', __name__, url_prefix='/detail')
