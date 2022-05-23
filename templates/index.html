@@ -14,6 +14,7 @@
 
     <!--자바스크립트, 스타일시트 파일 불러오기-->
     <script src="{{ url_for('static', filename='js/list.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/post.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/list.css') }}">
 
     <!-- favicon -->
@@ -34,8 +35,11 @@
 </head>
 <body>
 
-<button class="floating_button"></button>
-<button class="floating_button" type="button" onclick="goPost()"></button>
+
+<a href="{{ url_for('post.post_page')}}">
+    <button class="floating_button" type="button"></button>
+</a>
+
 
 <section>
     <header><h1><span class="deco">나의 젤리들</span></h1></header>
@@ -46,8 +50,8 @@
             <div class="jelly_box">
                 {% for val in value %}
                 <span data_tooltip="{{val.date.strftime('%d %a')}}">
-                    <a href="{{val._id}}">
-                    {# <a href={{url_for('detail.show_detail', post_id='val._id')}}> #}
+<!--                    <a href="{{val._id}}">-->
+                     <a href={{url_for('detail.show_detail', post_id='val._id')}}>
                         <div class="jelly"><img src={{val.emoji}}></div>
                     </a>
                 </span>
