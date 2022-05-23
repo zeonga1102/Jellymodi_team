@@ -18,11 +18,11 @@
     <div>
         <div class="tape"></div>
         <div class="container">
-            <div id="date" class="date"><span class="deco">2022 05 20 FRI</span></div>
+            <div id="date" class="date"><span class="deco">{{ post_info.date }}</span></div>
             <div class="content">
-                <div id="jelly_image" class="user_image"><img src="../static/img/happy.png"></div>
-                <div id="photo" class="user_image"><img src="../static/img/배경1.jpg"></div>
-                <div id="desc" class="desc">오늘의 일기... 모델 만들기 빡세군요<br>흠흠흠흠</div>
+                <div id="jelly_image" class="user_image"><img src={{ post_info.emoji }}></div>
+                <div id="photo" class="user_image"><img src={{ post_info.img }}></div>
+                <div id="desc" class="desc">{{ post_info.desc }}</div>
             </div>
         </div>
     </div>
