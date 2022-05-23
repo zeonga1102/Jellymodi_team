@@ -11,6 +11,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/detail_css.css') }}">
+    <script src="{{ url_for('static', filename='JS/detail_js.js') }}"></script>
 
 </head>
 <body>
@@ -36,7 +37,7 @@
             <div class="modal-body">
                 <button>수정하기</button>
                 <hr>
-                <button style="color: red">삭제하기</button>
+                <a href="{{ url_for('detail.delete_post', post_id=post_info._id) }}"><button style="color: red">삭제하기</button></a>
             </div>
         </div>
       </div>
