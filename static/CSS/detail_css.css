@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'hana';
+    src: url('nanum_hana.ttf') format('truetype');
+}
+
 body {
     background-color: #fcd19c;
 }
@@ -19,6 +24,7 @@ body {
 }
 
 #floating_edit_button {
+    font-family: 'hana';
     font-weight: bold;
 }
 
@@ -62,8 +68,9 @@ body {
 }
 
 .desc {
-    font-size: 20px;
+    font-size: 2em;
     padding: 0 10%;
+    font-family: 'hana';
 }
 
 .tape {
@@ -82,6 +89,8 @@ body {
     padding: 10px;
     resize: none;
     display: none;
+    font-size: 2em;
+    font-family: 'hana';
 }
 
 .edit_desc:focus {
@@ -105,6 +114,8 @@ body {
     border: none;
     padding: 15px;
     font-weight: bold;
+    font-family: 'hana';
+    font-size: 1.5em;
 }
 
 .modal-body > hr {
