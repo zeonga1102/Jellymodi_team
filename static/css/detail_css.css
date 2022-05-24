@@ -2,6 +2,14 @@
     font-family: 'hana';
     src: url('nanum_hana.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'busstop';
+    src: url('HYbusstop.ttf') format('truetype');
+}
+
+* {
+    font-family: 'busstop';
+}
 
 body {
     background-color: #fcd19c;
