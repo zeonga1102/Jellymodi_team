@@ -35,8 +35,9 @@
 </head>
 <body>
 
-<button class="floating_button"></button>
-<button class="floating_button" type="button" onclick="goPost()"></button>
+<a href="{{ url_for('post.post_page') }}">
+    <button class="floating_button"></button>
+</a>
 
 <section>
     <header><h1><span class="deco">나의 젤리들</span></h1></header>
