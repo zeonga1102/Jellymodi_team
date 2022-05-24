@@ -79,6 +79,10 @@ input {
     animation-fill-mode: forwards;
 }
 
+input {
+    display: none;
+}
+
 @keyframes profileBtnAni {
     0% {
         transform: scale(1);
