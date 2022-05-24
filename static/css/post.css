@@ -14,7 +14,7 @@
 body {
     background-color: #fcd19c;
     font-family: 'busstop';
-font-weight: 700;
+    font-weight: 700;
 }
 
 input {
@@ -128,11 +128,13 @@ input {
 .text_box {
     font-size: 2.5em;
     width: 100%;
+    font-weight: 700;
+    font-family: 'gangwon_hyeonok';
     background-color: #fff8f0;
     border: none;
     resize: none;
     overflow:hidden;
-    font-family: 'gangwon_hyeonok';
+
 }
 textarea.autosize { min-height: 50px; }
 
@@ -156,44 +158,50 @@ textarea.autosize { min-height: 50px; }
 
 @media (max-width: 1230px) {
     .safety_message {
-    font-size: 70px;
-    font-weight: 700;
-    letter-spacing: 5px;
-    line-height: 130%;
-    text-align: center;
-    margin-top: 20px;
-}
+        font-size: 70px;
+        font-weight: 700;
+        letter-spacing: 5px;
+        line-height: 130%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
     .message_icon {
-    width: 65px;
+        width: 65px;
+    }
 }
 @media (max-width: 700px) {
-    .posting_zone{
-    background-color: #fff8f0;
-    width: 360px;
-    margin: 7em auto;
-    border-radius: 1.5em;
-    box-shadow: 0 11px 35px 2px rgba(0, 0, 0, 0.14);
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
+    .posting_zone {
+        background-color: #fff8f0;
+        width: 360px;
+        margin: 7em auto;
+        border-radius: 1.5em;
+        box-shadow: 0 11px 35px 2px rgba(0, 0, 0, 0.14);
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+
     .safety_message {
-    font-size: 50px;
-    font-weight: 700;
-    letter-spacing: 5px;
-    line-height: 130%;
-    text-align: center;
-    margin-top: 20px;
-}
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: 5px;
+        line-height: 130%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
     .message_icon {
-    width: 45px;
-}
+        width: 45px;
+    }
+
     .text_box {
-    font-size: 1.8em;
-    width: 100%;
-    background-color: #fff8f0;
-    border: none;
-    resize: none;
-    overflow:hidden;
-    font-family: 'gangwon_hyeonok';
-}
+        font-size: 1.8em;
+        width: 100%;
+        font-weight: 700;
+        font-family: 'gangwon_hyeonok';
+        background-color: #fff8f0;
+        border: none;
+        resize: none;
+        overflow: hidden;
+    }
 }
