@@ -50,6 +50,13 @@ def change_pic_to_emoji():
 
     jelly_url = f'../static/img/jellyticon/{emotion}{random.randrange(1, 5)}.png'
 
+    doc = {
+        'img': path,
+        'pred': emotion
+    }
+
+    db.log.insert_one(doc)
+
     return jsonify({'url': jelly_url})
 
 
