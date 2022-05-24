@@ -38,13 +38,11 @@ function show_image(obj) {
 
 function submit() {
     let desc = $('#desc').val();
-    let face_img = $('#face_img')[0].files[0];
-    // let additional_img = $('#additional_img')[0].files[0];
+    let additional_img = $('#additional_img')[0].files[0];
 
     let form_data = new FormData();
     form_data.append('desc', desc);
-    form_data.append('face_img', face_img);
-    // form_data.append('additional_img', additional_img);
+    form_data.append('additional_img', additional_img);
 
     $.ajax({
         type: 'POST',
@@ -54,7 +52,6 @@ function submit() {
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response["msg"])
             window.location.href = '/'
         }
     });
