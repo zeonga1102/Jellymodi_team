@@ -32,6 +32,7 @@ label = {'0': 'angry',
          '2': 'notbad',
          '3': 'sad'}
 
+jelly_url = None
 
 @bp.route('/')
 def post_page():
@@ -39,14 +40,13 @@ def post_page():
 
 @bp.route('/change', methods=['POST'])
 def change_pic_to_emoji():
+    global jelly_url
+
     face_img = request.files['face_img']
 
-    timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S%f')
+    path = save_img(face_img, './static/img/log/')
 
-    path = './static/img/log/' + timestamp + secure_filename(face_img.filename)
-    face_img.save(path)
     result = classify_emotion(detection_face(path))
-
     emotion = label[result]
 
     jelly_url = f'../static/img/jellyticon/{emotion}{random.randrange(1, 5)}.png'
@@ -56,25 +56,39 @@ def change_pic_to_emoji():
 
 @bp.route('/upload', methods=['POST'])
 def upload():
-    print('upload')
-    # desc = request.form['desc']
-    # print(request.files.getlist('face_img'))
-    # face_img = request.files.getlist('face_img')
+    desc = request.form['desc']
+    additional_img = request.files['additional_img']
+    time = datetime.datetime.utcnow()
 
-    # face_img = request.files[0]['face_img']
-    # print(face_img)
+    path = save_img(additional_img, './static/img/post/')
 
-    # timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S%f')
+    token_receive = request.cookies.get('mytoken')
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
-    # path = './static/img/log' + timestamp + secure_filename(face_img.filename)
+        doc = {
+            'email': payload['email'],
+            'desc': desc,
+            'emoji': jelly_url,
+            'img': '.'+path,
+            'date': time
+        }
+
+        db.posts.insert_one(doc)
+
+        return jsonify({'msg': 'msg'})
+
+    except jwt.ExpiredSignatureError:
+        return redirect(url_for("login.login", msg="다시 로그인해주세요."))
+    except jwt.exceptions.DecodeError:
+        return redirect(url_for("login.login", msg="로그인 정보가 존재하지 않습니다."))
 
 
-    # face_img = request.files[0]['face_img']
-    # additional_img = request.files['additional_img']
-
-    # msg = classify_emotion(detection_face(face_img))
-
-    return jsonify({'msg': 'msg'})
+def save_img(img, default_path):
+    timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S%f')
+    path = default_path + timestamp + secure_filename(img.filename)
+    img.save(path)
+    return path
 
 
 def detection_face(img_path):
