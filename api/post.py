@@ -19,8 +19,7 @@ import random
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
-db = client.dbsparta
+
 
 bp = Blueprint('post', __name__, url_prefix='/post')
 
