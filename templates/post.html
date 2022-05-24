@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='/img/favicon.ico') }}" type="image/x-icon">
+
+    <!--자바스크립트, 스타일시트 파일 불러오기-->
+    <script src="{{ url_for('static', filename='js/post.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}">
+
+    <title>Jellymodi</title>
+</head>
+
+<script>
+    function resize(obj) {
+        obj.style.height = "1px";
+        obj.style.height = (12 + obj.scrollHeight) + "px";
+    }
+</script>
+
+<body>
+<div class="posting_zone">
+    <div class="safety_message">
+        <p>오늘 너는
+            <br>어떤 <img src="../static/img/favicon.png" class="message_icon">젤리였어? </p>
+    </div>
+    <div class="emotion_select_box">
+        <label class="icon select_icon" for="face_img">
+            <div class="icon_photo"></div>
+            <span>photo</span>
+        </label>
+        <input type="file" id="face_img" onchange="show_image(this)">
+        <label class="icon select_icon">
+            <div class="icon_camera"></div>
+            <span>camera</span>
+        </label>
+    </div>
+    <div class="image_select_box">
+        <label class="icon select_icon" for="additional_img">
+            <div class="icon_photo"></div>
+            <span>photo</span>
+        </label>
+        <input type="file" id="additional_img" onchange="show_image(this)">
+    </div>
+    <div class="text_box_wrap">
+        <textarea class="text_box autosize" id="desc" onkeydown="resize(this)" onkeyup="resize(this)"
+                  placeholder="오늘 어땠는지 적어줘 :D"></textarea>
+    </div>
+    <div>
+        <button class="submit" type="button" align="center" onclick="submit()">submit</button>
+    </div>
+</div>
+</body>
+</html>
