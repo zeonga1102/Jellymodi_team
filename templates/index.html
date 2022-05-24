@@ -14,18 +14,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
-    <!--자바스크립트, 스타일시트 파일 불러오기-->
-    <script src="{{ url_for('static', filename='js/list.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/post.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/list.css') }}">
-
-
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='/img/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ url_for('static', filename='/img/favicon.ico') }}" type="image/x-icon">
 
     <!--자바스크립트, 스타일시트 파일 불러오기-->
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/list.css') }}">
 
     <script>
         function logout() {
@@ -41,11 +35,9 @@
 </head>
 <body>
 
-
-<a href="{{ url_for('post.post_page')}}">
-    <button class="floating_button" type="button"></button>
+<a href="{{ url_for('post.post_page') }}">
+    <button class="floating_button"></button>
 </a>
-
 
 <section>
     <header><h1><span class="deco">나의 젤리들</span></h1></header>
