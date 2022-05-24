@@ -41,7 +41,8 @@ function submit() {
 
     let form_data = new FormData();
     form_data.append('desc', desc);
-    form_data.append('additional_img', additional_img);
+    if(additional_img != undefined)
+        form_data.append('additional_img', additional_img);
 
     $.ajax({
         type: 'POST',
