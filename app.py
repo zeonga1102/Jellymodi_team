@@ -5,16 +5,9 @@ import datetime
 import hashlib
 
 from api import login, detail, post
-from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
-db = client.dbsparta
-
-
-
 
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
-
 
 app.register_blueprint(login.bp)
 app.register_blueprint(detail.bp)
