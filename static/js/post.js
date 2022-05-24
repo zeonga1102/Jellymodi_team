@@ -31,7 +31,6 @@ function show_image(obj) {
             }
         });
     } else {
-
         parent.css({'background-image': `url(${url}`, 'background-size': 'cover', 'border': 'none'});
     }
 }

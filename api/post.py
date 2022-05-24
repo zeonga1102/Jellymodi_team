@@ -3,7 +3,6 @@ import jinja2
 import jwt
 import datetime
 import hashlib
-
 import tensorflow as tf
 import cv2
 import numpy as np
@@ -19,6 +18,7 @@ import random
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 from pymongo import MongoClient
+
 
 
 bp = Blueprint('post', __name__, url_prefix='/post')

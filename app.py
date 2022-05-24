@@ -9,10 +9,10 @@ from api import login, detail, post
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
 
-
 app.register_blueprint(login.bp)
 app.register_blueprint(detail.bp)
 app.register_blueprint(post.bp)
+
 
 from pymongo import MongoClient
 
