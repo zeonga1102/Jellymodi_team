@@ -1,8 +1,6 @@
-from flask import render_template, Blueprint, url_for, request, jsonify
-from werkzeug.utils import redirect
+from flask import render_template, Blueprint, url_for, request, jsonify, redirect
 from bson.objectid import ObjectId
 from pymongo import MongoClient
-
 
 
 

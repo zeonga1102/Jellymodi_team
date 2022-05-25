@@ -14,6 +14,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from pymongo import MongoClient
 
 
+
 bp = Blueprint('post', __name__, url_prefix='/post')
 
 model = tf.keras.models.load_model('static/emotionModel.h5')
