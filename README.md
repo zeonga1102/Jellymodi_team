@@ -1,6 +1,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/104331479/185329655-95f41df4-dec5-4e94-b6b8-471a0ef2deba.png" width="80%" height="80%"></p>
 
-# <img src="https://user-images.githubusercontent.com/104331479/185330319-86af99b3-0eb2-4a75-a0c4-2b36808a3734.png" width="30" height="30"/> Jellymodi_team
+# <img src="https://user-images.githubusercontent.com/104331479/185330319-86af99b3-0eb2-4a75-a0c4-2b36808a3734.png" width="30" height="30"/> Project Jellymodi
 
 **머신러닝 사물인식 프로젝트 - 젤리모디(Jellymodi: Jelly mood diary)**
 
@@ -33,6 +33,18 @@ Python OpenCV 를 이용하여 얼굴 표정을 인식하고, 분석한 표정�
   * 구글로그인 연동기능
 ***
 
+# TEAM Coumi
+**팀 코우미 (코딩못하면 우는 미니언즈)**
+| 팀원 | 이름 | 역할 | 깃허브 |
+|:----------:|:----------:|:----------:|:----------:|
+| 대장 미니언 (팀장) | **이정아** | 일기 조회 페이지 | <a href="https://github.com/zeonga1102"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+| 디자이너 미니언 | **노을** | 메인 페이지 | <a href="https://github.com/minkkky"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+| 기획자 미니언 | **이현경** | 로그인 및 회원가입 페이지 | <a href="https://github.com/LULULALA2"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+| 막내 미니언 | **김동근** | 일기 작성 페이지 | <a href="https://github.com/cmjcum"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+* 모델제작 - 팀 전체 참여
+
+***
+
 # 기획 및 일정
 * 와이어프레임
 
@@ -58,15 +70,3 @@ Python OpenCV 를 이용하여 얼굴 표정을 인식하고, 분석한 표정�
 
 * 글 상세 & 메뉴
 ![글상세-모달](https://user-images.githubusercontent.com/104331479/185369005-ffd33b83-e248-4bb5-96ae-e0fc4d328218.png)
-
-***
-
-# TEAM Coumi
-**팀 코우미 (코딩못하면 우는 미니언즈)**
-| 팀원 | 이름 | 역할 | 깃허브 |
-|:----------:|:----------:|:----------:|:----------:|
-| 대장 미니언 (팀장) | **이정아** | 일기 조회 페이지 | <a href="https://github.com/zeonga1102"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-| 디자이너 미니언 | **노을** | 메인 페이지 | <a href="https://github.com/minkkky"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-| 기획자 미니언 | **이현경** | 로그인 및 회원가입 페이지 | <a href="https://github.com/LULULALA2"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-| 막내 미니언 | **김동근** | 일기 작성 페이지 | <a href="https://github.com/cmjcum"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-* 모델제작 - 팀 전체 참여
