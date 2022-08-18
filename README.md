@@ -24,6 +24,10 @@ Python OpenCV 를 이용하여 얼굴 표정을 인식하고, 분석한 표정�
 # 📌Project
 * 시연영상 : https://ddongkim.tistory.com/37
 
+<video width="100%" height="100%" controls="controls">
+  <source src="젤리모디_시연영상.mp4" type="video/mp4">
+</video>
+
 * 목적 : backend 실력 향상 ( HTML, JavaScript, Ajax, Python, Flask, MongoDB )
 * 1차 목표 : 인스타 페이지 기본기능 구현
   * 회원가입, 로그인, 로그아웃 기능 (JWT 사용)
@@ -33,7 +37,7 @@ Python OpenCV 를 이용하여 얼굴 표정을 인식하고, 분석한 표정�
   * 구글로그인 연동기능
 ***
 
-# TEAM Coumi
+# 👨‍👨‍👧‍👧TEAM Coumi
 **팀 코우미 (코딩못하면 우는 미니언즈)**
 | 팀원 | 이름 | 역할 | 깃허브 |
 |:----------:|:----------:|:----------:|:----------:|
@@ -45,7 +49,7 @@ Python OpenCV 를 이용하여 얼굴 표정을 인식하고, 분석한 표정�
 
 ***
 
-# 기획 및 일정
+# ✏기획 및 일정
 * 와이어프레임
 
 ![피그마 목업](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcoToUW%2FbtrCumtehoi%2FKCUpBnVBXOQhBOQnIMz4WK%2Fimg.png)
@@ -53,7 +57,6 @@ Python OpenCV 를 이용하여 얼굴 표정을 인식하고, 분석한 표정�
 * 젤리티콘 제작
 
 ![젤리티콘제작](https://user-images.githubusercontent.com/104331479/185370310-7f77facf-19a5-43e2-8b67-f8bc4e62302d.PNG)
-
 
 * 일정
 
