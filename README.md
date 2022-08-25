@@ -120,7 +120,7 @@ model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=0.001), metrics
 ![image](https://user-images.githubusercontent.com/71905164/186601476-8fe8385d-8390-4747-9240-915795ca906c.png)
 
 # 🛠Troubleshooting
-### 일기 목록에서 정렬 문제
+### 1. 일기 목록에서 정렬 문제
 
 처음 우리가 프로젝트를 구상할 때 메인 페이지에서 일기 목록을 연도, 월별로는 내림차순 정렬을 하고 일별로는 오름차순 정렬을 하고싶었습니다. 메인 페이지 부분 구현을 맡으신 팀원분이 월별로 내림차순은 구현하셨지만 그 안에서 일별로 오름차순 정렬은 어떻게 해야할지 잘 모르겠다고 하셔서 함께 코드를 수정했습니다.
 
@@ -143,8 +143,10 @@ try:
             temp[post['date'].strftime('%Y %B')] = [post]
 ```
 </details>
+
 <details>    
 <summary><b>수정 후 코드</b></summary>
+    
 ```python
 token_receive = request.cookies.get('mytoken')
 try:
@@ -167,7 +169,7 @@ try:
 ```
 </details>
 
-### module compiled against API version 0xe but this version of numpy is 0xd
+### 2. module compiled against API version 0xe but this version of numpy is 0xd
 Tensorflow와 numpy의 버전이 충돌해서 생기는 오류입니다. numpy 버전을 업그레이드 하거나 다운그레이드 하는 것으로 해결 가능합니다. 저의 경우 1.22.3 버전으로 다시 인스톨 해서 해결했습니다.
 
 # 🖋회고
