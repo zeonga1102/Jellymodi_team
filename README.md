@@ -107,7 +107,7 @@ model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=0.001), metrics
 <details>
 <summary>일기 작성 <a href="https://github.com/zeonga1102/Jellymodi_team/blob/master/api/post.py#L51">📑코드</a></summary>
 
-사용자가 작성한 일기 내용과 사진, 얼굴 표정에 알맞은 젤리 아이콘을 저장합니다.
+사용자가 작성한 일기 내용과 사진, 얼굴 표정에 알맞은 젤리 아이콘을 저장합니다. 백엔드만 작업했습니다.
 </details>
 <details>
 <summary>일기 조회, 삭제, 수정 <a href="https://github.com/zeonga1102/Jellymodi_team/blob/master/api/detail.py#L11">📑코드</a></summary>
