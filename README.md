@@ -1,75 +1,126 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/104331479/185329655-95f41df4-dec5-4e94-b6b8-471a0ef2deba.png" width="80%" height="80%"></p>
 
-# <img src="https://user-images.githubusercontent.com/104331479/185330319-86af99b3-0eb2-4a75-a0c4-2b36808a3734.png" width="30" height="30"/> Project Jellymodi
+# <img src="https://user-images.githubusercontent.com/104331479/185330319-86af99b3-0eb2-4a75-a0c4-2b36808a3734.png" width="30" height="30"/> Jellymodi
+Object detection을 사용해 얼굴을 인식하고 인식한 얼굴에서 표정을 분류해 해당하는
 
-**머신러닝 사물인식 프로젝트 - 젤리모디(Jellymodi: Jelly mood diary)**
+젤리 아이콘으로 바꿔주는 mood tracker 기법의 일기 작성 웹사이트
 
-Python OpenCV 를 이용하여 얼굴 표정을 인식하고, 분석한 표정에 해당하는 젤리 이모티콘을 넣어 일기를 쓰는 웹사이트 제작
-***
-
-# ⭐Intro
+# 🍮Intro
 * mood tracker 기법을 사용하는 일기 작성 서비스
-* Python OpenCV 을 이용한 얼굴인식
-* 한국인 얼굴 표정 데이터 분석을 학습시킨 모델 제작 (데이터셋 : <a href="https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=82">AIHub - 한국인 감정인식을 위한 복합 영상</a>)
-* S.A(Starting Assignment) : https://typingmylife.notion.site/Jellymodi-5e43c9f96bb04da7b4de26aac6eceeca
+* 사물 인식을 이용해 사람 얼굴을 인식
+* 전이학습을 적용해 만든 한국인 얼굴 표정 분류 모델로 인식한 사람의 표정을 분류
+* **개발 기간**: 2022.05.18 ~ 2022.05.24
+* **개발 인원(4명)**: 김동근, 노을, 이정아, 이현경
+* **Team Repository** <a href="https://github.com/cmjcum/Jellymodi_team"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a>
+* **S.A** <a href="https://cold-charcoal.tistory.com/68">블로그로 이동(☞ﾟヮﾟ)☞</a>
 
-<div>
-   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
-   <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=Django&logoColor=white">
-   <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white">
-</div>
+# 📆Project
+### 사용 기술
+* Python 3.8
+* Flask
+* MongoDB
 
-***
+### 핵심 기능
+사진에서 얼굴을 인식하고 제작한 모델을 이용해 표정을 분류해서 알맞은 젤리 아이콘으로 변경하고 일기 작성
+* 사진에서 얼굴 인식 및 표정 분류
+* 작성한 일기 CRUD
+* JWT 이용한 로그인
+* 반응형 웹
 
-# 📌Project
-* 시연영상 : https://ddongkim.tistory.com/37
+### 맡은 부분
+<details>
+<summary>데이터 전처리</summary>
 
-<video width="100%" height="100%" controls="controls">
-  <source src="젤리모디_시연영상.mp4" type="video/mp4">
-</video>
+AIHub에서 데이터를 받아오긴 했지만 총 7개의 감정이 있었고 살펴보니 분류가 잘 되지 않은 사진도 있고 대부분 배경이 많이 보이는 사진이었습니다. 따라서 사진을 올바르게 분류하고 각 사진들에서 얼굴만 잘라내는 작업이 필요했습니다. 얼굴 검출에는 openCV의 캐스케이드 분류기를 사용했습니다.
+```python
+import cv2
+import glob
 
-* 목적 : backend 실력 향상 ( HTML, JavaScript, Ajax, Python, Flask, MongoDB )
-* 1차 목표 : 인스타 페이지 기본기능 구현
-  * 회원가입, 로그인, 로그아웃 기능 (JWT 사용)
-  * 메인페이지 게시물(CRUD), 게시물 활동
-  * 캠/사진을 통한 얼굴인식 → 머신러닝 사물인식 모델을 이용한 감정판별 → 해당 표정에 맞는 이모티콘 표시
-* 2차 목표 : 부가기능 구현
-  * 구글로그인 연동기능
-***
+# haarcascade 불러오기
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+images = glob.glob('images/*')
+result_list = []
+for i in images:
+    temp = i.replace("\\", "/")
+    result_list.append(temp)
+print("result_list = ", end=""), print(result_list)
 
-# 👨‍👨‍👧‍👧TEAM Coumi
-**팀 코우미 (코딩못하면 우는 미니언즈)**
-| 팀원 | 이름 | 역할 | 깃허브 |
-|:----------:|:----------:|:----------:|:----------:|
-| 대장 미니언 (팀장) | **이정아** | 일기 조회 페이지 | <a href="https://github.com/zeonga1102"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-| 디자이너 미니언 | **노을** | 메인 페이지 | <a href="https://github.com/minkkky"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-| 기획자 미니언 | **이현경** | 로그인 및 회원가입 페이지 | <a href="https://github.com/LULULALA2"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-| 막내 미니언 | **김동근** | 일기 작성 페이지 | <a href="https://github.com/cmjcum"><img src="https://img.shields.io/badge/Github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-* 모델제작 - 팀 전체 참여
+# 이미지 불러오기
+for image in result_list:
+    if "jpg" in image:
+        ori_img = cv2.imread(image)
+        ori_img = cv2.resize(ori_img, dsize=(0, 0), fx=0.4, fy=0.4, interpolation=cv2.INTER_AREA)
+        gray = cv2.cvtColor(ori_img, cv2.COLOR_BGR2GRAY)
+        
+        # 얼굴 찾기
+        faces = face_cascade.detectMultiScale(gray, 1.2 , minSize=(200,200))
+        
+        cnt = 0
+        for (x, y, w, h) in faces:
+            img_x1 = x
+            img_x2 = x + w
+            img_y1 = y
+            img_y2 = y + h
+            img = ori_img[img_y1:img_y2, img_x1:img_x2]
+            image_file_name = image.split('.')
+            
+            file_name = image_file_name[0]
+            extension = image_file_name[1]
+            file_name += str(cnt)
+            filename = 'images/face/' + file_name + '.' + extension
+            
+            cv2.imwrite(filename, img)
+            cnt += 1
+```
+왼쪽 이미지가 오른쪽과 같이 저장됩니다.
+![image](https://user-images.githubusercontent.com/71905164/186595107-144c6550-f160-41ed-8904-466bb57bb55b.png)
+</details>
+<details>
+<summary>표정 분류 모델 제작</summary>
 
-***
+데이터셋은 라벨이 총 7개였는데 우리는 학습의 정확도를 높이기 위해 기쁨, 분노, 슬픔, 중립 4개의 라벨만을 사용하기로 했습니다. 전이학습을 이용했습니다. 정확도는 약 0.90입니다.
+```python
+from tensorflow.keras.applications.inception_v3 import InceptionV3
 
-# ✏기획 및 일정
-* 와이어프레임
+input = Input(shape=(224, 224, 3))
+base_model = InceptionV3(weights='imagenet', include_top=False, input_tensor=input, pooling='max')
 
-![피그마 목업](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcoToUW%2FbtrCumtehoi%2FKCUpBnVBXOQhBOQnIMz4WK%2Fimg.png)
+x = base_model.output
+x = Dropout(rate=0.25)(x)
+x = Dense(64, activation='relu')(x)
+x = Dense(256, activation='relu')(x)
+x = Dense(64, activation='relu')(x)
+x = Dense(32, activation='relu')(x)
+x = Dense(8, activation='relu')(x)
+output = Dense(4, activation='softmax')(x)
 
-* 젤리티콘 제작
+model = Model(inputs=base_model.input, outputs=output)
+model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=0.001), metrics=['acc'])
+```
+</details>
+<details>
+<summary>사용자가 입력한 사진 젤리 아이콘으로 변경 <a href="https://github.com/zeonga1102/Jellymodi_team/blob/master/api/post.py#L35">📑코드</a></summary>
 
-![젤리티콘제작](https://user-images.githubusercontent.com/104331479/185370310-7f77facf-19a5-43e2-8b67-f8bc4e62302d.PNG)
+사용자가 사진을 선택하면 그 사진에서 얼굴을 검출하고 제작한 모델로 표정을 분류해서 젤리 아이콘으로 바꿔 보여줍니다.
+</details>
+<details>
+<summary>일기 작성 <a href="https://github.com/zeonga1102/Jellymodi_team/blob/master/api/post.py#L51">📑코드</a></summary>
 
-* 일정
+사용자가 작성한 일기 내용과 사진, 얼굴 표정에 알맞은 젤리 아이콘을 저장합니다.
+</details>
+<details>
+<summary>일기 조회, 삭제, 수정 <a href="https://github.com/zeonga1102/Jellymodi_team/blob/master/api/detail.py#L11">📑코드</a></summary>
 
-![일정 관리](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdpoO9z%2FbtrCuVvoecp%2FV9ZiulP6KUSxxo8lWLfIG0%2Fimg.png)
+사용자가 작성한 일기의 상세 정보를 조회하고 수정과 삭제를 합니다.<br>
+단 수정은 일기의 내용만 할 수 있고 첨부한 사진이나 젤리 아이콘은 수정할 수 없습니다.
+</details>
 
-***
+### ERD
+![image](https://user-images.githubusercontent.com/71905164/186601476-8fe8385d-8390-4747-9240-915795ca906c.png)
 
-# 실행화면
-* 로그인 & 메인화면
-![로그인-메인화면](https://user-images.githubusercontent.com/104331479/185368926-32a15726-98a1-47c1-a4a5-a5e025da8d36.png)
+# 🛠Troubleshooting
 
-* 글작성
-![글작성](https://user-images.githubusercontent.com/104331479/185368976-bee79add-1ff6-4aac-b344-394ab8a7ad08.png)
+# 🖋회고
 
-* 글 상세 & 메뉴
-![글상세-모달](https://user-images.githubusercontent.com/104331479/185369005-ffd33b83-e248-4bb5-96ae-e0fc4d328218.png)
+# ✍Credit
+* 한국인 감정인식을 위한 복합 영상 [AIHub](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=82)
