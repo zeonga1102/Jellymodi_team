@@ -19,6 +19,7 @@ Object detection을 사용해 얼굴을 인식하고 인식한 얼굴에서 표�
 * Python 3.8
 * Flask
 * MongoDB
+* Tensorflow 2.9
 
 ### 핵심 기능
 사진에서 얼굴을 인식하고 제작한 모델을 이용해 표정을 분류해서 알맞은 젤리 아이콘으로 변경하고 일기 작성
@@ -119,6 +120,55 @@ model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=0.001), metrics
 ![image](https://user-images.githubusercontent.com/71905164/186601476-8fe8385d-8390-4747-9240-915795ca906c.png)
 
 # 🛠Troubleshooting
+<details>
+<summary>일기 목록에서 정렬 문제</summary>
+
+처음 우리가 프로젝트를 구상할 때 메인 페이지에서 일기 목록을 연도, 월별로는 내림차순 정렬을 하고 일별로는 오름차순 정렬을 하고싶었습니다. 메인 페이지 부분 구현을 맡으신 팀원분이 월별로 내림차순은 구현하셨지만 그 안에서 일별로 오름차순 정렬은 어떻게 해야할지 잘 모르겠다고 하셔서 함께 코드를 수정했습니다.
+    
+**수정 전 코드**
+```python
+token_receive = request.cookies.get('mytoken')
+try:
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+    posts = list(db.posts.find({"email": payload['email']}))
+
+    temp = {}
+    for post in posts:
+        try:
+            temp[post['date'].strftime('%Y %B')].append(post)
+
+        except:
+            temp[post['date'].strftime('%Y %B')] = [post]
+```
+    
+**수정 후 코드**
+```python
+token_receive = request.cookies.get('mytoken')
+try:
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+    posts = list(db.posts.find({"email": payload['email']}))
+    for post in posts:
+        post['Y-M'] = post['date'].strftime('%Y%m')
+        post['day'] = post['date'].strftime('%d')
+
+    posts.sort(key=lambda x: (-int(x['Y-M']), x['day']))
+
+    temp = {}
+    for post in posts:
+        try:
+            temp[post['date'].strftime('%Y %B')].append(post)
+
+        except:
+            temp[post['date'].strftime('%Y %B')] = [post]
+```
+</details>
+<details>
+<summary>module compiled against API version 0xe but this version of numpy is 0xd</summary>
+
+Tensorflow와 numpy의 버전이 충돌해서 생기는 오류입니다. numpy 버전을 업그레이드 하거나 다운그레이드 하는 것으로 해결 가능합니다. 저의 경우 1.22.3 버전으로 다시 인스톨 해서 해결했습니다.
+</details>
 
 # 🖋회고
 
